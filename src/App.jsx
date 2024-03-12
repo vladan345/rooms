@@ -5,9 +5,15 @@ import { PerspectiveCamera } from "@react-three/drei";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/all";
 import Experience from "./world/Experience";
-
+gsap.registerPlugin(ScrollToPlugin);
 function App() {
+  useEffect(() => {
+    console.log("Hi");
+    gsap.to(window, { scrollTo: 0, duration: 0.2 });
+  }, []);
+
   return (
     <main>
       <Canvas

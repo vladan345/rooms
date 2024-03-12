@@ -1,4 +1,4 @@
-import { useGLTF, Sparkles } from "@react-three/drei";
+import { useGLTF, Stars } from "@react-three/drei";
 import {
   Bloom,
   DepthOfField,
@@ -13,7 +13,7 @@ export default function Scene() {
   return (
     <>
       <EffectComposer>
-        <Bloom mipmapBlur luminanceThreshold={5} intensity={0.5} />
+        <Bloom mipmapBlur luminanceThreshold={1.1} intensity={1} />
       </EffectComposer>
       <ambientLight intensity={1} />
 
@@ -27,18 +27,23 @@ export default function Scene() {
       />
       <pointLight intensity={20} position-y={4} position-z={8} />
       <pointLight intensity={20} position-y={4} position-z={20} />
-      <mesh position={[0, 1, 30]}>
-        <sphereGeometry args={[2, 10, 10]} />
-        <meshBasicMaterial color={[10, 8, 5]} />
+      <pointLight intensity={5} position-y={2} position-z={27} position-x={1} />
+      {/* <mesh position={[0, 1, 30]}>
+        <sphereGeometry args={[2.4, 20, 20]} />
+        <meshLambertMaterial color={[0.2, 0.2, 0.2]} />
+      </mesh> */}
+      <mesh position={[0, 1, 31]}>
+        <sphereGeometry args={[3, 20, 20]} />
+        <meshBasicMaterial color={[5, 5, 2]} />
       </mesh>
-      <Sparkles
-        size={2}
-        scale={[8, 8, 8]}
-        position-y={2}
-        position-z={23}
-        speed={0.2}
-        count={300}
-        opacity={0.1}
+      <Stars
+        radius={100}
+        depth={50}
+        count={5000}
+        factor={4}
+        saturation={0}
+        fade
+        speed={1}
       />
     </>
   );
